@@ -28,4 +28,11 @@ jobs:
     - name: Build
       # Build your program with the given configuration
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+      
+    - name: Upload
+      uses: actions/upload-artifact@v3
+      with:
+        name: BspDowngradeTool
+        path: ${{github.workspace}}/build/${{env.BUILD_TYPE}}/BspDowngradeTool.exe
+      
 
